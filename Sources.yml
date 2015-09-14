@@ -4,20 +4,24 @@
       title: "BAR Arabidopsis AGI -> Annotation" #mandatory, free text; maps to dcterms:title
       description: "Most recent annotation for given AGI" #optional, free text; maps to dcterms:description
       language: "en-ca" # optional, valid values defined in RFC 4646; maps to dcterms:language
-      links: #optional, list of link objects distinguished by 'uri'
-        - uri: "http://bar.utoronto.ca/webservices/agiToAnnot.php" #mandatory if defining links, valid URI
-          description: "The AGI to Annotation web service" #optional, free text
+      uri: "http://bar.utoronto.ca/webservices/agiToAnnot.php" #optional, valid URI; maps to dcterms:identifier
       license: "Creative Commons 3.0" #optional, free text or valid URI; maps to dcterms:license
+      citations: #optional, list of citations distinguised by 'text'
+        - text: "An \"Electronic Fluorescent Pictograph\" Browser for Exploring and Analyzing Large-Scale Biological Data Sets. PLOS One. August 8, 2007"
+          uri: "DOI: 10.1371/journal.pone.0000718"
+        - text: "ePlant and the 3D Data Display Initiative: Integrative Systems Biology on the World Wide Web. PLOS One. January 10, 2011"
+          uri: "DOI: 10.1371/journal.pone.0015237"
       # authors are contributors to this data source
-      authors: #optional, list of author objects distinguised by 'name'
+      authors: #optional, list of author objects distinguised by 'name'; maps to PROV agent
         - name: "Nicholas Provart" #mandatory
           email: "provart@utoronta.ca" #optional, valid email
-          uri: "http://csb.utoronto.ca/faculty/nicholas-provart/" #optional, valid URI
-          role: "Principal Investigator" #optional, free text
+          uri: "http://csb.utoronto.ca/faculty/nicholas-provart/" #optional, valid URI; maps to foaf:homepage
+          phone: "999-999-999" #optional, matches [0-9\+\-()]+; maps to foaf:phone
+          role: "Principal Investigator" #optional, free text; maps to 'prov:role'
           sponsors: #optional, list of sponsors distinguished by 'name'
             - name: "University of Toronto" #mandatory
-              uri: "http://www.utoronto.ca/" #optional, valid URI
-              address: "123 Main Street, Toronto, Canada" #optional, free text
+              uri: "http://www.utoronto.ca/" #optional, valid URI; maps to foaf:homepage
+              address: "123 Main Street, Toronto, Canada" #optional, free text; maps to dcterms:Location
         - name: "Asher Pasha"
           role: "Software Developer"
           sponsors:
@@ -28,11 +32,12 @@
           title: "TAIR"
           description: "The Arabidopsis Information Resource"
           language: "en-us"
-          links:
-            - uri: "https://www.arabidopsis.org/"
+          uri: "https://www.arabidopsis.org/"
           citations: #optional, list of citations distinguised by 'text'
             - text: "The Arabidopsis Information Resource (TAIR): improved gene annotation and new tools. Nucleic Acids Research 2011" #mandatory, plaintext, maps to dcterms:bibliographicCitation
-              uri: "doi:10.1093/nar/gkr1090" # optional, valid DOI for ^ text
+              uri: "doi:10.1093/nar/gkr1090" # optional, valid URL including DOI string
+            - text: "The arabidopsis information resource: Making and mining the \"gold standard\" annotated reference plant genome. Berardini et. al. Nucleic Acids Research. Volume 53, Issue 8, pages 474485, August 2015"
+              uri: "DOI: 10.1002/dvg.22877"
           authors:
             - name: "Eva Huala"
               sponsors:
