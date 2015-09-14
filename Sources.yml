@@ -1,40 +1,40 @@
 ---
-  # sources are nested
-  sources:
+  sources: #mandatory, list of source objects distinguished by 'title'; sources can be nested
     -
-      # maps to dcterms:title
-      title: "BAR Arabidopsis AGI -> Annotation"
-      # maps to dcterms:description
-      description: "Most recent annotation for given AGI"
-      # optional - maps to dcterms:language
-      # valid values defined in RFC 4646
-      language: "en-ca"
-      # optional - maps to dcterms:modified and is used to describe when the resource was
-      # published or last updated. Recommended to use ISO 8601 encoding but will need to be
-      # permissive in accepting non-ISO 8601 dates
-      last_modified: "2015-04-17T09:44:56"
-      # Used to realize the Organization agent
-      sponsor_organization_name: "University of Toronto"
-      # optional - maps to dcterms:identifier in Agent
-      sponsor_uri: "http://www.utoronto.ca/"
-      # Used to realize the Person agent
-      provider_name: "Nicholas Provart"
-      # optional - maps to foaf:mbox in Agent
-      provider_email: "provart@utoronta.ca"
-      # Maps to dcterms:identifier in the Entity
-      uri: "http://bar.utoronto.ca/webservices/agiToAnnot.php"
-      # optional - maps to dcterms:license
-      # Allow simple string or URL
-      license: "Creative Commons 3.0"
-      sources:
+      title: "BAR Arabidopsis AGI -> Annotation" #mandatory, free text; maps to dcterms:title
+      description: "Most recent annotation for given AGI" #optional, free text; maps to dcterms:description
+      language: "en-ca" # optional, valid values defined in RFC 4646; maps to dcterms:language
+      links: #optional, list of link objects distinguished by 'uri'
+        - uri: "http://bar.utoronto.ca/webservices/agiToAnnot.php" #mandatory if defining links, valid URI
+          description: "The AGI to Annotation web service" #optional, free text
+      license: "Creative Commons 3.0" #optional, free text or valid URI; maps to dcterms:license
+      # authors are contributors to this data source
+      authors: #optional, list of author objects distinguised by 'name'
+        - name: "Nicholas Provart" #mandatory
+          email: "provart@utoronta.ca" #optional, valid email
+          uri: "http://csb.utoronto.ca/faculty/nicholas-provart/" #optional, valid URI
+          role: "Principal Investigator" #optional, free text
+          sponsors: #optional, list of sponsors distinguished by 'name'
+            - name: "University of Toronto" #mandatory
+              uri: "http://www.utoronto.ca/" #optional, valid URI
+              address: "123 Main Street, Toronto, Canada" #optional, free text
+        - name: "Asher Pasha"
+          role: "Software Developer"
+          sponsors:
+            - name: "University of Toronto"
+              uri: "http://www.utoronto.ca/"
+      sources: #optional, list of contributing sources distinguished by 'title'
         -
           title: "TAIR"
           description: "The Arabidopsis Information Resource"
           language: "en-us"
-          # optional - maps to dcterms:bibliographicCitation
-          citation: "The Arabidopsis Information Resource (TAIR): improved gene annotation and new tools. Nucleic Acids Research 2011 doi: 10.1093/nar/gkr1090"
-          sponsor_organization_name: "Phoenix Bioinformatics"
-          provider_name: "Eva Huala"
-          # optional - maps to foaf:mbox in Agent
-          uri: "https://www.arabidopsis.org/"
-          sources: []
+          links:
+            - uri: "https://www.arabidopsis.org/"
+          citations: #optional, list of citations distinguised by 'text'
+            - text: "The Arabidopsis Information Resource (TAIR): improved gene annotation and new tools. Nucleic Acids Research 2011" #mandatory, plaintext, maps to dcterms:bibliographicCitation
+              uri: "doi:10.1093/nar/gkr1090" # optional, valid DOI for ^ text
+          authors:
+            - name: "Eva Huala"
+              sponsors:
+                - name: "Phoenix Bioinformatics"
+                - uri: "http://phoenixbioinformatics.org/"
