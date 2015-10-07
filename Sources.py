@@ -76,7 +76,7 @@ def example():
 
     # Add: dcterms:Location as Sources.yml address
     utoronto = g.agent(ap['university_of_toronto'], {
-        'prov:type': PROV["Organization"], 'foaf:givenName': "University of Toronto", 'dcterms:identifier':"http://www.utoronto.ca/", 'dcterms:Location':"123 Main Street, Toronto, Canada"
+        'prov:type': PROV["Organization"], 'foaf:givenName': "University of Toronto", 'dcterms:identifier':"http://www.utoronto.ca/", 'dcterms:Location':"123 Main Street, Toronto, Canada", 'foaf:logo': "http://www.governingcouncil.utoronto.ca/Assets/Governing+Council+Digital+Assets/Homepage+Images/ppapr211998.jpg"
     })
 
     # In Sources.yml, both Nick and Asher list U Toronto as one of their sponsors

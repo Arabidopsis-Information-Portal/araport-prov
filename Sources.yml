@@ -22,6 +22,7 @@
             - name: "University of Toronto" #mandatory
               uri: "http://www.utoronto.ca/" #optional, valid URI; maps to foaf:homepage
               address: "123 Main Street, Toronto, Canada" #optional, free text; maps to dcterms:Location
+              icon: "http://www.governingcouncil.utoronto.ca/Assets/Governing+Council+Digital+Assets/Homepage+Images/ppapr211998.jpg" # optional, valid URI; maps to foaf:logo
         - name: "Asher Pasha"
           role: "Software Developer"
           sponsors:
